@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function() {
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       var activeTab = tabs[0];
       trackToPost.url = activeTab.url;
-      chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
+      chrome.tabs.sendMessage(activeTab.id, {"message": "youtube"});
     });
 });
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if( request.message === "open_new_tab" ) {
+    if( request.message === "artist_and_title" ) {
       var $title = request.artistTitle;
       var artist;
       var title;
@@ -28,8 +28,7 @@ chrome.runtime.onMessage.addListener(
       trackToPost.title = title;
       $('button').attr('disabled', false);
       $('h1').text(artist + ' - ' + title);
-      $('button').on('click', function(event){
-    // var $currentTarget = event.currentTarget;
+      $('button').on('click', function(){
         var url = 'http://localhost:3000/tracks';
         $.post(url, {track: trackToPost});
       });
@@ -37,11 +36,7 @@ chrome.runtime.onMessage.addListener(
   }
 );
 
-// $('button').on('click', function(event){
-//     // var $currentTarget = event.currentTarget;
-//     var url = 'http://localhost:3000/tracks';
-//     $.post(url, {track: trackToPost});
-// });
+
 
 
 

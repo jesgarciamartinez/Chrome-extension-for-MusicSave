@@ -4,29 +4,17 @@
   "description": "Gets URL and title from Youtube.",
   "icons": { "128": "icon_off.png" },
   "manifest_version": 2,
-  // "background": {
-  //   "persistent": false,
-  //   "scripts": ["background.js"]
-  // },
-  // "permissions": ["http://*.google.com/", "https://*.google.com/"],
   "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-    //"tabs"
+    "activeTab"
   ],
-
-  // "externally_connectable": {
-  //   "matches": ["*://localhost/*", "*://your.domain.com/*"]
-  //},
-
   "browser_action": {
     "default_icon": "icon_off.png",
     "default_popup": "popup.html",
     "default_title": "Save track!"
   },
   // "content_scripts": [ {
-  //     "js": [ "jquery-2.1.1.min.js", "background.js" ],
-  //     "matches": [ "http://youtube.com/*", "https://youtube.com/*"]
+  //     "matches": ["*://youtube.com/*"],
+  //     "js": ["jquery-2.1.1.min.js", "content.js"]
   // }]
   "content_scripts": [
   {
