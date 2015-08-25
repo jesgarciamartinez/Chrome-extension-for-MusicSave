@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
-    if( request.message === "artist_and_title" ) {
+    // if( request.message === "artist_and_title" ) {
       var $title = request.artistTitle;
       var artist;
       var title;
@@ -34,7 +34,7 @@ chrome.runtime.onMessage.addListener(
         var url = 'http://localhost:3000/tracks';
         $.post(url, {track: trackToPost});
       });
-    }
+    //}
   }
 );
 
