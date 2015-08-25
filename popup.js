@@ -3,15 +3,6 @@ var trackToPost = {};
 
 document.addEventListener('DOMContentLoaded', function() {
   //chrome.pageAction.setIcon(icon_128_active.png);
-  // var artistTitle = getYoutubeArtistAndTitle();
-  // var artist = artistTitle[0];
-  // var title = artistTitle[1];
-
-  // getCurrentTabUrl(function(url){
-  //   $('h1').text(artist + title);
-  //   objectPost = {artist: artist, title: title, url: url};
-  //   console.log(objectPost);
-  //   $('button').attr('disabled', false);
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       var activeTab = tabs[0];
       trackToPost.url = activeTab.url;
@@ -36,7 +27,7 @@ chrome.runtime.onMessage.addListener(
       trackToPost.artist = artist;
       trackToPost.title = title;
       $('button').attr('disabled', false);
-      $('h1').text(artist + title + trackToPost.url);
+      $('h1').text(artist + ' - ' + title);
       $('button').on('click', function(event){
     // var $currentTarget = event.currentTarget;
         var url = 'http://localhost:3000/tracks';
