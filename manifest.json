@@ -5,7 +5,8 @@
   "icons": { "128": "icon_off.png" },
   "manifest_version": 2,
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "*://www.youtube.com/*"
   ],
   "browser_action": {
     "default_icon": "icon_off.png",
@@ -16,13 +17,13 @@
   //     "matches": ["*://youtube.com/*"],
   //     "js": ["jquery-2.1.1.min.js", "content.js"]
   // }]
-  "content_scripts": [
-  {
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": ["jquery-2.1.1.min.js", "content.js"]
-  }],
+  // "content_scripts": [
+  // {
+  //   "matches": [
+  //     "<all_urls>"
+  //   ],
+  //   "js": ["jquery-2.1.1.min.js", "content.js"]
+  // }],
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {

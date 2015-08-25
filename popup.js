@@ -3,6 +3,8 @@ var trackToPost = {};
 
 document.addEventListener('DOMContentLoaded', function() {
   //chrome.pageAction.setIcon(icon_128_active.png);
+      chrome.tabs.executeScript(null, {file: "jquery-2.1.1.min.js"});
+      chrome.tabs.executeScript(null, {file: "content.js"});
       chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       var activeTab = tabs[0];
       trackToPost.url = activeTab.url;
