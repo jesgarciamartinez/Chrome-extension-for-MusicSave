@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if ((/\S/.test(tag)) && tags.indexOf(tag) === -1){
                     tag.trim();
                     tags.push(tag);
-                    $('.typed-tags').append('<span id="' + tag + '">' + tag + '<button type="button" class="close" data-dismiss="label">×</button></span>');
+                    $('.typed-tags').append('<span id="' + tag + '">' + tag + '<button type="button" class="closes">×</button></span>');
                 };
             };
         };
@@ -28,8 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // remove tag when 'x' button is clicked
 
-    $('.typed-tags').on('click', '.close' ,function(){
-        $(event.target).closest('span').remove();
+    $('.typed-tags').on('click', '.closes' ,function(){
+        var tag = $(event.target).closest('span');
+        tag.remove();
+        tags.splice(tags.indexOf(tag.attr('id')), 1);
+
     });
 
     //post trackToPost and tags when clicking save
